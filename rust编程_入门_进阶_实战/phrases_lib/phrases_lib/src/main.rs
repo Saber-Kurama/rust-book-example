@@ -9,6 +9,9 @@
 // use phrases_lib::chinese::farewells as cn_farewells;
 use phrases_lib::chinese;
 use phrases_lib::english::{ greetings, farewells };
+
+mod frist;
+
 mod my_old {
   pub fn function() {
     println!("my_old function")
@@ -18,10 +21,11 @@ fn function() {
   println!("function----")
 }
 fn main() {
-  function();
-  my_old::function();
-  println!("greetings in chinese: {}", chinese::hello());
-  println!("farewells in chinese: {}", chinese::goodbye());
-  println!("greetings in englist: {}", greetings::hello());
+  frist::helloWorld();
+  // function();
+  // my_old::function();
+  // println!("greetings in chinese: {}", chinese::hello());
+  // println!("farewells in chinese: {}", chinese::goodbye());
+  // println!("greetings in englist: {}", greetings::hello());
 //  println!("hello in chinese: {}", phrases_lib::chinese::greetings::hello()) 
 }
