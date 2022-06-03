@@ -5,13 +5,16 @@
  * @LastEditors: saber
  * @Description: 
  */
+// 模块化编程
+// crate 是一个Rust的基本单元
+// 二进制 crate 和 库 crate
+// 一个工程可以包含等多个二进制crate 至多包含一个 库crate
+// 库是为了第三方使用
+
 // use phrases_lib::chinese::greetings as cn_greetings;
 // use phrases_lib::chinese::farewells as cn_farewells;
 use phrases_lib::chinese;
 use phrases_lib::english::{ greetings, farewells };
-
-mod frist;
-
 mod my_old {
   pub fn function() {
     println!("my_old function")
@@ -21,11 +24,10 @@ fn function() {
   println!("function----")
 }
 fn main() {
-  frist::helloWorld();
-  // function();
-  // my_old::function();
-  // println!("greetings in chinese: {}", chinese::hello());
-  // println!("farewells in chinese: {}", chinese::goodbye());
-  // println!("greetings in englist: {}", greetings::hello());
+  function();
+  my_old::function();
+  println!("greetings in chinese: {}", chinese::hello());
+  println!("farewells in chinese: {}", chinese::goodbye());
+  println!("greetings in englist: {}", greetings::hello());
 //  println!("hello in chinese: {}", phrases_lib::chinese::greetings::hello()) 
 }
