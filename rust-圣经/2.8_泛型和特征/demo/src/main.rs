@@ -93,6 +93,30 @@ impl File {
     }
 }
 
+pub trait Draw {
+    fn draw(&self) -> String;
+}
+
+impl Draw for u8 {
+    fn draw(&self) -> String {
+        format!("u8: {}", *self)
+    }
+}
+
+impl Draw for f64 {
+    fn draw(&self) -> String {
+        format!("f64: {}", *self)
+    }
+}
+
+fn draw1(x: Box<dyn Draw>) -> String {
+    x.draw()
+}
+
+fn draw2(x: &dyn Draw) -> String {
+    x.draw()
+}
+
 fn main() {
     println!("Hello, world!");
     let post = Post {
@@ -122,4 +146,11 @@ fn main() {
     let f6 = File::new("f6.txt");
     println!("{}", f6);
     println!("{:?}", f6);
+
+    let a: u8 = 1;
+    let b = 2.0f64;
+    println!("{}", draw1(Box::new(a)));
+    println!("{}", draw1(Box::new(b)));
+    println!("{}", draw2(&a));
+    println!("{}", draw2(&b))
 }
