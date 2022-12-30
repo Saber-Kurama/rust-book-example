@@ -1,19 +1,20 @@
-use clap::{Arg, App};
+use clap::{App, Arg};
 use std::fs::File;
-use std::path::Path;
 use std::io::{Read, Write};
+use std::path::Path;
 use std::process;
 
 fn main() {
     let matches = App::new("kt")
-      .version("0.1.0")
-      .author("xxx")
-      .about("A drop in cat replacement written in Rust")
-      .arg(Arg::with_name("FILE")
-            .help("File to print.")
-            .empty_values(false)
+        .version("0.1.0")
+        .author("xxx")
+        .about("A drop in cat replacement written in Rust")
+        .arg(
+            Arg::with_name("FILE")
+                .help("File to print.")
+                .empty_values(false),
         )
-      .get_matches();
+        .get_matches();
 
     if let Some(file) = matches.value_of("FILE") {
         println!("value: {}", file);
@@ -31,14 +32,12 @@ fn main() {
                             process::exit(1);
                         }
                     }
-
                 }
                 Err(err) => {}
             }
         }
-    }else{
+    } else {
         eprintln!("[kt Error]");
         process::exit(1);
-    }   
+    }
 }
-
