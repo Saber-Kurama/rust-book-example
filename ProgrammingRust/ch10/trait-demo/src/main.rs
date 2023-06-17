@@ -1,6 +1,6 @@
 use std::io::Write;
 
-// trait 对象
+// trait 对象 leid
 // fn say_hello(out: &mut dyn Write) -> Result<(), std::io::Error> {
 //     out.write_all(b"hello world\n");
 //     out.flush()
